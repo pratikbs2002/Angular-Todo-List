@@ -1,1 +1,15 @@
-<p>task-form works!</p>
+<div>
+  <form #taskForm="ngForm" class="task-form">
+    <input
+      class="task-input"
+      placeholder="Enter Your Task title"
+      name="task-title"
+      [(ngModel)]="taskTitle"
+      required
+    />
+    <!-- <input placeholder="Enter Your Task Description" />
+    <input placeholder="Enter End Date" type="date" />
+    <input placeholder="Enter End time" type="date" /> -->
+    <button class="submit-button" (click)="addTask(taskForm)">Add</button>
+  </form>
+</div>

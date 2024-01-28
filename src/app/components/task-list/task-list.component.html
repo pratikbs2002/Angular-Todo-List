@@ -1,1 +1,28 @@
-<p>task-list works!</p>
+<div>
+  <div>
+    <ul
+      style="display: flex; flex-direction: column; gap: 10px; list-style: none"
+    >
+      <li *ngFor="let task of taskList">
+        <div
+          style="
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+            border: 1px solid white;
+            border-radius: 10px;
+            width: 300px;
+          "
+        >
+          <div>
+            {{ task.taskTitle }}
+          </div>
+          <div (click)="deleteTask(task.taskId)" style="cursor: pointer">
+            ❌
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
