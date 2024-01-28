@@ -7,6 +7,18 @@
       [(ngModel)]="taskTitle"
       required
     />
+    <div
+      style="
+        color: red;
+        font-size: 12px;
+        margin-top: -7px;
+        text-align: left;
+        align-self: flex-start;
+      "
+      *ngIf="!valid"
+    >
+      *Please Enter the Task Title
+    </div>
     <!-- <input placeholder="Enter Your Task Description" />
     <input placeholder="Enter End Date" type="date" />
     <input placeholder="Enter End time" type="date" /> -->

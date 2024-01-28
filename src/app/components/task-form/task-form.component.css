@@ -1,6 +1,13 @@
 .submit-button {
-  width: 100px;
+  width: 200px;
   cursor: pointer;
+  color: white;
+  background-color: #f05454;
+  border: none;
+  border-radius: 3px;
+  margin-top: 20px;
+  font-size: 18px;
+  padding: 4px 10px 4px 10px;
 }
 .task-form {
   display: flex;
