@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-task-list',
@@ -9,12 +9,9 @@ import { Component } from '@angular/core';
   styleUrl: './task-list.component.css',
 })
 export class TaskListComponent {
-  taskList: { taskTitle: string; taskId: string }[] = [
-    { taskTitle: 'pratik', taskId: '12343534323434' },
-    { taskTitle: 'defefefE', taskId: '234234544' },
-  ];
-
+  @Input() taskList: { taskTitle: string; taskId: string }[] = [];
+  @Output() deleteTaskEvent: EventEmitter<string> = new EventEmitter();
   deleteTask(taskId: string) {
-    this.taskList = this.taskList.filter((task) => task.taskId !== taskId);
+    this.deleteTaskEvent.emit(taskId);
   }
 }

@@ -1,7 +1,10 @@
 <div class="home-page-main-container">
   <div class="inside-container">
     <div class="main-title"><u> Todo List </u></div>
-    <app-task-form></app-task-form>
-    <app-task-list></app-task-list>
+    <app-task-form (addTasks)="onAddTask($event)" />
+    <app-task-list
+      [taskList]="taskList"
+      (deleteTaskEvent)="onTaskDeleted($event)"
+    />
   </div>
 </div>

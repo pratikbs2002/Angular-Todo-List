@@ -1,5 +1,11 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+  ViewChild,
+} from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 
 @Component({
@@ -10,25 +16,28 @@ import { FormsModule, NgForm } from '@angular/forms';
   styleUrl: './task-form.component.css',
 })
 export class TaskFormComponent {
-  taskList: { taskTitle: string; taskId: string }[] = [];
+  @ViewChild('taskForm') taskForm!: NgForm;
+  @Output() addTasks: EventEmitter<{ taskTitle: string; taskId: string }> =
+    new EventEmitter();
   taskTitle: string = '';
   taskId: string = '';
   valid: boolean = true;
   addTask = (task: any) => {
     if (task.value['task-title']) {
-      this.taskList.push({
+      this.addTasks.emit({
         taskTitle: task.value['task-title'],
         taskId: Math.random().toString(),
       });
       this.valid = true;
       alert('Task added successfully');
+      this.taskForm.resetForm();
     } else {
       this.valid = false;
     }
   };
-  constructor() {
-    // setInterval(() => {
-    //   console.log(this.taskList);
-    // }, 1000);
-  }
+  // constructor() {
+  // setInterval(() => {
+  //   console.log(this.taskList);
+  // }, 1000);
+  // }
 }
